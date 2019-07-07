@@ -44,7 +44,7 @@ To only show the output without saving
 ```bash
 python3 main.py \
 	--layer block5_conv4 \
-	--input my-image.png \
+	--input llama.png \
 	--verbose
 ```
 
@@ -53,7 +53,7 @@ To save the output
 ```
 python3 main.py \
 	--layer block5_conv4 \
-	--input my-image.png \
+	--input llama.png \
 	--output graph.png \
 	--verbose
 ```
@@ -63,7 +63,7 @@ To only save the output without showing
 ```bash
 python3 main.py \
 	--layer block5_conv4 \
-	--input my-image.png \
+	--input llama.png \
 	--output graph.png \
 	--quiet
 ```
