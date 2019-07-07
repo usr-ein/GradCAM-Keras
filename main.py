@@ -37,13 +37,13 @@ def main():
     predicted_class_name = decode_predictions(prediction, top=1)[0][0][1]
 
     logger.info("Gets the tensor object (a scalar here) which is activated when showing the image")
-    y_c = model.output[0, predicted_class]
+    y_c_tensor = model.output[0, predicted_class]
 
     logger.info("Gets the tensor object corresponding to the output of the studied convolution layer")
     A_tensor = model.get_layer(args.layer).output
 
     logger.info("Gets the tensor containing the gradient of y_c w.r.t. A")
-    gradient_tensor = K.gradients(y_c, A_tensor)[0]
+    gradient_tensor = K.gradients(y_c_tensor, A_tensor)[0]
 
     logger.info("Creates a function that takes as input the model's input "
                 "and outputs the convolutions' result and the gradient of the prediction w.r.t. it")
