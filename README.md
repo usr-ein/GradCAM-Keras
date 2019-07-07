@@ -5,7 +5,18 @@ This code is explained on [this blog article](http://blog.samuelprevost.com/neur
 
 ![Applied to sunglasses image](https://raw.githubusercontent.com/sam1902/GradCAM-Keras/master/sunglasses.png)
 
+# Installing
+```bash
+git clone https://github.com/sam1902/GradCAM-Keras
+pip3 install -r GradCAM-Keras/requirements.txt
+cd GradCAM-Keras
+```
+
 # Usage
+To use this program, run
+``` python3 main.py ```
+from within the root of this repository.
+
 ```
 main.py [-h] --input /path/to/input/image.png
                [--output /path/to/output/graph.png] --layer
@@ -25,4 +36,34 @@ optional arguments:
   -v, --verbose
   -q, --quiet           If set, doesn't show the plot and only saves the
                         output (if one is provided).
+```
+
+# Example
+To only show the output without saving
+
+```bash
+python3 main.py \
+	--layer block5_conv4 \
+	--input my-image.png \
+	--verbose
+```
+
+To save the output
+
+```
+python3 main.py \
+	--layer block5_conv4 \
+	--input my-image.png \
+	--output graph.png \
+	--verbose
+```
+
+To only save the output without showing
+
+```bash
+python3 main.py \
+	--layer block5_conv4 \
+	--input my-image.png \
+	--output graph.png \
+	--quiet
 ```
